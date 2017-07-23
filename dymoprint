@@ -22,10 +22,10 @@
 DESCRIPTION = 'Linux Software to print with LabelManager PnP from Dymo\n written in Python'
 DEV_CLASS       = 3
 DEV_VENDOR      = 0x0922
-DEV_PRODUCT     = 0x1002
+DEV_PRODUCT     = 0x1008
 #DEV_PRODUCT     = 0x1001
 DEV_NODE        = None
-DEV_NAME        = 'Dymo LabelManager PnP'
+DEV_NAME        = 'Dyno Wireless PnP'
 #FONT_FILENAME  = '/usr/share/fonts/truetype/ttf-bitstream-vera/Vera.ttf'
 FONT_CONFIG = {'regular':'/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-R.ttf',     # regular font
                'bold':'/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-B.ttf',        # bold font
@@ -77,7 +77,7 @@ class DymoLabeler:
 
     _ESC = 0x1b
     _SYN = 0x16
-    _MAX_BYTES_PER_LINE = 8  # 64 pixels on a 12mm tape
+    _MAX_BYTES_PER_LINE = 32  # 64 pixels on a 12mm tape
 
     def __init__(self, dev):
         """Initialize the LabelManager object. (HLF)"""
@@ -109,7 +109,6 @@ class DymoLabeler:
 
         self.cmd = []
         self.response = False
-
     def buildCommand(self, cmd):
         """Add the next instruction to the command. (MLF)"""
 
@@ -525,7 +524,7 @@ def main(args):
 
         # create an empty label image
         labelheight = lm._MAX_BYTES_PER_LINE * 8
-        lineheight = float(labelheight) / len(labeltext)
+        lineheight =  labelheight# float(labelheight) / len(labeltext)
         fontsize = int(round(lineheight * FONT_SIZERATIO))
         font = ImageFont.truetype(FONT_FILENAME, fontsize)
         labelwidth = max(font.getsize(line)[0] for line in labeltext) + (fontoffset*2)
