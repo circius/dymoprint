@@ -1,15 +1,11 @@
-dymoprint
+dymoprint-wpmp
 =========
 
-Linux Software to print with LabelManager PnP from Dymo
+A few small adjustments to the dymoprint script for the Dymo PnP to make it compatible with the Dymo Wireless PnP.
 
+Basically working, but multi-line write doesn't seem to work - and the best way to adjust font-size is to directly adjust a variable in the script...
 
 cloned for development from http://sbronner.com/dymoprint/
-
-Changes:
-
-- *some..*
-
 
 ### For ubuntu based distributions:
 (should also work for debian, but not tested yet)
@@ -34,28 +30,10 @@ You may choose any TTF Font you like
 
 You may edit the file to point to your favorite font.
 
-For my Arch-Linux System, fonts are located at e.g.
-
-	/usr/share/fonts/TTF/DejaVuSerif.ttf
-
-It is also possible to Download a font from
-http://font.ubuntu.com/ and use it.
-
 ### Additional libraries used:
 *(todo..)*
 - PIL/PILLOW
 - [pyqrcode](https://github.com/mnooner256/pyqrcode) (used v1.0)
 - [pyBarcode](https://bitbucket.org/whitie/python-barcode) (used v0.7)
 
-### ToDo
-- (?)support multiple ProductIDs (1001, 1002) -> use usb-modeswitch?
-- put everything in classes that would need to be used by a GUI
-- ~~for more options use command line parser framework~~
-- ~~allow selection of font with command line options~~
-- allow font size specification with command line option (points, pixels?)
-- ~~provide an option to show a preview of what the label will look like~~
-- ~~read and write a .dymoprint file containing user preferences~~
-- ~~print barcodes~~
-- print graphics
-- ~~plot frame around label~~
-- vertical print
+
